@@ -5,6 +5,15 @@ Devise a Movie Recommendation System based Netflix and IMDB dataset using collab
 ## Introduction
 With the current advancements of so many online streaming websites for movies, one can now watch any movie or show old and new. However, with such a sheer volume of movies, it becomes overwhelming to browse among them and find a movie of one’s choice and taste. We have built a collaborative filtering-based recommendation system that provides movie and TV show suggestions based on the user’s preference and liking.
 
+### Recommendation system:
+A recommender framework, or a proposal framework (now and again supplanting ‘framework’ with an equivalent word, for example, stage or motor), is a subclass of data separating framework that tries to foresee the “rating” or “inclination” a client would provide for a thing. They are essentially utilized in business applications.
+
+### Cosine Similarity
+Cosine similarity is the measure of similarity between two vectors, by computing the cosine of the angle between two vectors projected into multidimensional space. It can be applied to items available on a dataset to compute similarity to one another via keywords or other metrics. Similarity between two vectors (A and B) is calculated by taking the dot product of the two vectors and dividing it by the magnitude value as shown in the equation below. We can simply say that the CS score of two vectors increases as the angle between them decreases.
+
+![Cosine](images/cosine.png)
+
+
 One key advantage of collaborative filtering is that it is independent of product knowledge. Rather, it relies on the users with a basic assumption that what the users liked in the past will also be liked in the future. For example, if a person A watches crime, sci-fi, and thriller genres and B watches sci-fi, thriller, and action genres then A will also like action, and B will like crime genre.
 
 Finally, I provided a visualization tool for users to access our recommender system through a web application built in Dash and deployed the tool in Heroku.
@@ -101,5 +110,5 @@ determine the top movies to recommend.
 - User: User inputs the genre from a drop-down menu
 - Tool: A list of the top 10 most recommended movies from that genre will be displayed
 
-![Case 3](images/case3.gif)
+![Case 3](images/case2_new.png)
 
