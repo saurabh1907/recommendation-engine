@@ -1,0 +1,41 @@
+# what language the build will be configured for
+language: python
+
+# specify what versions of python will be used
+# note that all of the versions listed will be tried
+python: 3.7
+
+# what branches should be evaluated
+branches:
+    only:
+        - master
+
+
+# list of commands to run to setup the environment
+install:
+    - sudo apt-get update
+    - wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
+    - bash miniconda.sh -b -p $HOME/miniconda
+    - export PATH="$HOME/miniconda/bin:$PATH"
+    - hash -r
+    - conda config --set always_yes yes --set changeps1 no
+    - conda update -q conda
+    - conda info -a
+    - pip install gunicorn
+    - pip install -r requirements.txt
+    - conda env create -f environment.yml
+    - source activate mrs
+    - conda install pylint
+    - conda install pytest-cov
+    - pip install coverage
+    - pip install coveralls
+
+
+# the actual commands to run
+script:
+- coverage run -m unittest app/tests/tests.py
+
+# generate a coverage report to send to back to user
+after_success:
+- coverage report
+- coveralls
